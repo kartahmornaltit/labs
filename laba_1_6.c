@@ -12,4 +12,5 @@ int main()
 
 	printf("k = %d\n", c);
 	getchar();
+	return 0;
 }

@@ -65,7 +65,7 @@ void set_marks(int arr[N][N])
 	}
 }
 
-int main()
+void main()
 {
 	int arr[N][N];
 

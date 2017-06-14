@@ -45,7 +45,7 @@ void multiply(int arr[N][M], int vec[M], int ans[N])
 	
 }
 
-int main()
+void main()
 {
 	int arr[N][M] = { { 0 } }, vec[M] = { 0 }, ans[N] = { 0 };
 

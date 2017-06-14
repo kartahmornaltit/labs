@@ -50,7 +50,7 @@ int cheak_bkt(int *arr, int c)
 	}
 }
 
-int main()
+void main()
 {
 	int arr[N];
 	int cnt_of_elem, cheak, shift = 0;
