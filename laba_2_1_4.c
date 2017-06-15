@@ -5,7 +5,7 @@ int arr[N];
 int input_array()
 {
 	int c = 0, i = 0;
-	while ((c = getchar()) != EOF)
+	while ((c = getchar()) != '\n')
 	{
 		arr[i] = c;
 		i++;
@@ -17,7 +17,7 @@ int output_array(int length, int capital_letters_count)
 {
 	for (int i = 0; i < length; i++)
 		putchar(arr[i]);
-	printf("Capital letters:%d\n", capital_letters_count);
+	printf("\nCapital letters:%d\n", capital_letters_count);
 	return 0;
 }
 
