@@ -3,45 +3,46 @@
 
 #define N 100
 
-int input_array(int *arr)
+int input_array(int arr[N])
 {
 	int c, i = 0;
-	while ((c = getchar()) != EOF)
+	while ((c = getchar()) != '\n')
 	{
 		arr[i] = c;
 		i++;
+		if (i == N)
+			break;
 	}
 	return i;
 }
 
-int output_array(int *arr, int c)
+int output_array(int arr[N], int c)
 {
 	for (int i = 0; i < c; i++)
 		putchar(arr[i]);
 	return 0;
 }
 
-int cheak_bkt(int *arr, int c)
+int check_bkt(int arr[N], int c)
 {
-	int triger = 0;
-	for (int i = 0; i < c; ++i)
+	int trigger = 0;
+	for (int i = 0; i < c; i++)
 	{
-		c = arr[i];
-		if (c == '(')
+		if (arr[i] == '(')
 		{
 			arr[i] = -2;
-			triger++;
+			trigger++;
 		}
-		else if (c == ')') 
+		else if (arr[i] == ')') 
 		{
 			arr[i] = -2;
-			triger--;
+			trigger--;
 		}
-		else if (triger > 0)
+		else if (trigger > 0)
 			arr[i] = -2;
 
 	}
-	if (!triger)
+	if (!trigger)
 		return 1;
 	else
 	{
@@ -53,11 +54,11 @@ int cheak_bkt(int *arr, int c)
 void main()
 {
 	int arr[N];
-	int cnt_of_elem, cheak, shift = 0;
+	int cnt_of_elem = 0, shift = 0;
 
 	cnt_of_elem = input_array(arr);
 
-	cheak_bkt(arr, cnt_of_elem);
+	check_bkt(arr, cnt_of_elem);
 
 	for (int i = 0; i < cnt_of_elem; i++)
 	{
@@ -68,7 +69,8 @@ void main()
 			continue;
 		}
 		arr[i - shift] = arr[i];
-	} cnt_of_elem -= shift;
+	};
+	cnt_of_elem -= shift;
 
 	output_array(arr, cnt_of_elem);
 
