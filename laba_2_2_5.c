@@ -72,5 +72,4 @@ void main()
 	cnt_of_elem -= shift;
 
 	output_array(arr, cnt_of_elem);
-
 }
