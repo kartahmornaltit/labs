@@ -30,12 +30,12 @@ int check_bkt(int arr[N], int c)
 	{
 		if (arr[i] == '(')
 		{
-			arr[i] = -2;
+//			arr[i] = -2;
 			trigger++;
 		}
 		else if (arr[i] == ')') 
 		{
-			arr[i] = -2;
+//			arr[i] = -2;
 			trigger--;
 		}
 		else if (trigger > 0)
