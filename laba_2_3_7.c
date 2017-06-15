@@ -11,9 +11,9 @@ void input_queen(int arr[N][N])
 		for (int j = 0; j < N; j++)
 			arr[i][j] = 219;
 	int i, j;
-	printf("column = ");
-	scanf_s("%d", &i);
 	printf("row = ");
+	scanf_s("%d", &i);
+	printf("column = ");
 	scanf_s("%d", &j);
 	if (i < 1 || i > 8 || j < 1 || j > 8)
 	{
