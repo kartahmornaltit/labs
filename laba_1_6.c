@@ -3,14 +3,13 @@
 
 int main()
 {
-	int c, n;
+	int answer, input_number;
 
 	printf("N = ");
-	scanf_s("%d", &n);
+	scanf_s("%d", &input_number);
 
-	c = sqrt(n);
+	answer = sqrt(input_number);
 
-	printf("k = %d\n", c);
-	getchar();
+	printf("k = %d", answer);
 	return 0;
 }

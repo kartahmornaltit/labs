@@ -13,24 +13,24 @@ int input_array()
 	return i;
 }
 
-int output_array(int c, int c1)
+int output_array(int length, int capital_letters_count)
 {
-	for (int i = 0; i < c; i++)
+	for (int i = 0; i < length; i++)
 		putchar(arr[i]);
-	printf("Capital letters:%d\n", c1);
+	printf("Capital letters:%d\n", capital_letters_count);
 	return 0;
 }
 
 int main()
 {
-	int i, c, c1 = 0;
-	c = input_array();
+	int length = 0, capital_letters_count = 0;
+	length = input_array();
 
-	for (i = 0; i < c; i++)
+	for (int i = 0; i < length; i++)
 	{
 		if (arr[i] >= 65 && arr[i] <= 90)
-			c1++;
+			capital_letters_count++;
 	}
-	output_array(c, c1);
+	output_array(length, capital_letters_count);
     return 0;
 }
