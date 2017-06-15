@@ -1,14 +1,12 @@
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 #define N 3
 #define M 2
 
 void input_data(int arr[N][M], int vec[M])
 {
-	FILE *file_in;
-
-	file_in = fopen("input.txt", "r");
+	FILE *file_in = fopen("input.txt", "r");
 
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
@@ -22,9 +20,7 @@ void input_data(int arr[N][M], int vec[M])
 
 void output_answer(int ans[N])
 {
-	FILE *file_out;
-
-	file_out = fopen("output.txt", "w");
+	FILE *file_out = fopen("output.txt", "w");
 
 	for (int i = 0; i < N; i++)
 		fprintf(file_out, "%d\n", ans[i]);

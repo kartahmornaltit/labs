@@ -1,14 +1,11 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 void set_N_M(int * N, int * M)
 {
-	FILE *file_in;
+	FILE *file_in = fopen("input.txt", "r");
 	int simb = 0, m = 0, in_numb = 0;
-
-	file_in = fopen("input.txt", "r");
 
 	while ((simb = fgetc(file_in)) != EOF)
 	{
@@ -40,9 +37,7 @@ void set_N_M(int * N, int * M)
 
 void input_data(int **arr, int N, int M)
 {
-	FILE *file_in;
-
-	file_in = fopen("input.txt", "r");
+	FILE *file_in = fopen("input.txt", "r");
 	
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
@@ -118,6 +113,4 @@ void main()
 	qsort(arr, N, M, 0, N - 1);
 
 	output_answer(arr, N, M);
-
-	exit(1);
 }
