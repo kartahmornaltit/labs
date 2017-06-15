@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -13,10 +12,10 @@ void input_data(int arr[N][M], int vec[M])
 
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
-			fscanf(file_in, "%d", &arr[i][j]);
+			fscanf_s(file_in, "%d", &arr[i][j]);
 	
 	for (int i = 0; i < M; i++)
-		fscanf(file_in, "%d", &vec[i]);
+		fscanf_s(file_in, "%d", &vec[i]);
 
 	fclose(file_in);
 }
@@ -42,7 +41,6 @@ void multiply(int arr[N][M], int vec[M], int ans[N])
 			sum += arr[i][r] * vec[r];
 		ans[i] = sum;
 	}
-	
 }
 
 void main()
@@ -54,6 +52,4 @@ void main()
 	multiply(arr, vec, ans);
 
 	output_answer(ans);
-
-	exit(1);
 }
