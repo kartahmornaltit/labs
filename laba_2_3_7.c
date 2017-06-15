@@ -9,7 +9,7 @@ void input_queen(int arr[N][N])
 {
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
-			arr[i][j] = 219;
+			arr[i][j] = '-';
 	int i, j;
 	printf("row = ");
 	scanf_s("%d", &i);
@@ -30,7 +30,7 @@ void output_array(int arr[N][N])
 	{
 		for (int j = 0; j < N; j++)
 		{
-			printf("%c\t", arr[i][j]);
+			printf("%c ", arr[i][j]);
 		}
 		printf("\n");
 	}
@@ -38,16 +38,15 @@ void output_array(int arr[N][N])
 
 void set_marks(int arr[N][N])
 {
-	int col, row;
+	int col, row, trigger = false;
 	for (int i = 0; i < N; i++)
 	{
-		int trigger = false;
 		for (int j = 0; j < N; j++)
 		{
 			if (arr[i][j] == 'Q')
 			{
-				row = i + 1; 
-				col = j + 1;
+				row = i; 
+				col = j;
 				trigger = true;
 				break;
 			}
@@ -59,8 +58,8 @@ void set_marks(int arr[N][N])
 	{
 		for (int j = 0; j < N; j++)
 		{
-			if (((i + 1) == row || (j + 1) == col || (i + j + 2) == (row + col) || (abs(i + 1 - row) == abs(j + 1 - col))) && arr[i][j] != 'Q')
-				arr[i][j] = 253;
+			if ((i == row || j == col || (abs(i - row) == abs(j - col))) && arr[i][j] != 'Q')
+				arr[i][j] = '+';
 		}
 	}
 }
