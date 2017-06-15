@@ -64,7 +64,6 @@ void main()
 	{
 		if (arr[i] == -2)
 		{
-			arr[i] = 0;
 			shift++;
 			continue;
 		}
@@ -74,5 +73,4 @@ void main()
 
 	output_array(arr, cnt_of_elem);
 
-	exit(1);
 }
