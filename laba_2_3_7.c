@@ -41,18 +41,18 @@ void set_marks(int arr[N][N])
 	int col, row;
 	for (int i = 0; i < N; i++)
 	{
-		_Bool triger = false;
+		int trigger = false;
 		for (int j = 0; j < N; j++)
 		{
 			if (arr[i][j] == 'Q')
 			{
 				row = i + 1; 
 				col = j + 1;
-				triger = true;
+				trigger = true;
 				break;
 			}
 		}
-		if (triger)
+		if (trigger)
 			break;
 	}
 	for (int i = 0; i < N; i++)
@@ -74,6 +74,4 @@ void main()
 	set_marks(arr);
 
 	output_array(arr);
-
-	exit(1);
 }
