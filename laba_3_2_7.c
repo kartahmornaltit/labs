@@ -4,8 +4,10 @@
 
 void set_N_M(int * N, int * M)
 {
-	FILE *file_in = fopen("input.txt", "r");
+	FILE *file_in;
 	int simb = 0, m = 0, in_numb = 0;
+
+	file_in = fopen("input.txt", "r");
 
 	while ((simb = fgetc(file_in)) != EOF)
 	{
@@ -37,8 +39,10 @@ void set_N_M(int * N, int * M)
 
 void input_data(int **arr, int N, int M)
 {
-	FILE *file_in = fopen("input.txt", "r");
-	
+	FILE *file_in;
+
+	file_in = fopen("input.txt", "r");
+
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
 			fscanf(file_in, "%d", &arr[i][j]);
@@ -46,49 +50,34 @@ void input_data(int **arr, int N, int M)
 	fclose(file_in);
 }
 
-void output_answer(int **arr, int N, int M)
-{
-	FILE *file_out;
-
-	file_out = fopen("output.txt", "w");
-
-	for (int i = N - 1; i >= 0; i--)
+void search(int **a, int N, int M) {
+	int count = 0, min, max;
+	for (int i = 0; i < N; i++) 
 	{
+		min = a[i][0];
 		for (int j = 0; j < M; j++)
-			fprintf(file_out, "%d\t", arr[i][j]);
-		fprintf(file_out, "\n");
+			if (a[i][j] < min)
+				min = a[i][j];
+		for (int j = 0; j < M; j++) 
+			if (a[i][j] == min) 
+			{
+				max = a[0][j];
+				for (int k = 0; k < N; k++) 
+					if (a[k][j] > max) 
+						max = a[k][j];
+				if (min == max) {
+					printf("i = %d; j = %d\n", i + 1, j + 1);
+					count++;
+				}
+			}
 	}
-	fclose(file_out);
+	if (count == 0) 
+		printf("no such elements");
+	else
+		printf("%d elements\n", count);
 }
 
-void swap(int **arr, int N, int M, int l, int r)
-{
-	for (int j = 0; j < M; j++)
-	{
-		int temp = arr[l][j];
-		arr[l][j] = arr[r][j];
-		arr[r][j] = temp;
-	}
-}
 
-void qsort(int **arr, int N, int M, int b, int e)
-{
-	int l = b, r = e;
-	int piv = arr[(l + r) / 2][0];
-	while (l <= r)
-	{
-		while (arr[l][0] < piv)
-			l++;
-		while (arr[r][0] > piv)
-			r--;
-		if (l <= r)
-			swap(arr, N, M, l++, r--);
-	}
-	if (b < r)
-		qsort(arr, N, M, b, r);
-	if (e > l)
-		qsort(arr, N, M, l, e);
-}
 
 void main()
 {
@@ -110,7 +99,12 @@ void main()
 
 	input_data(arr, N, M);
 
-	qsort(arr, N, M, 0, N - 1);
+	search(arr, N, M);
 
-	output_answer(arr, N, M);
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+			printf("%4.0d", arr[i][j]);
+		printf("\n");
+	}
 }
