@@ -99,7 +99,6 @@ void main()
 
 	input_data(arr, N, M);
 
-	search(arr, N, M);
 
 	for (int i = 0; i < N; i++)
 	{
@@ -107,4 +106,10 @@ void main()
 			printf("%4.0d", arr[i][j]);
 		printf("\n");
 	}
+	
+	search(arr, N, M);
+	
+	for (int i = 0; i < N; i++)
+		free(arr[i])
+	free(arr)
 }
